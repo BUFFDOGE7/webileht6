@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positivus</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          dark: '#191A23',
+          green: '#B9FF66',
+          light: '#F3F3F3',
+        },
+        fontFamily: {
+          sans: ['Space Grotesk', 'sans-serif'],
+        },
+        borderRadius: {
+          '5xl': '2.8rem',
+        },
+        boxShadow: {
+          card: '0 5px 0 #191A23',
+        },
+        keyframes: {
+          marquee: {
+            '0%':   { transform: 'translateX(0)' },
+            '100%': { transform: 'translateX(-50%)' },
+          }
+        },
+        animation: {
+          marquee: 'marquee 22s linear infinite',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .process-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; padding: 0 52px; }
+  .process-item.open .process-body { max-height: 220px; padding: 28px 52px 44px; border-top: 1.5px solid rgba(25,26,35,.2); }
+  .process-item.open .process-head { background: #B9FF66; border-radius: 2.8rem 2.8rem 0 0; }
+  .process-item.open .process-toggle { transform: rotate(45deg); background: #191A23; color: #fff; }
+  .testi-track { display: flex; gap: 28px; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+  .testi-dot.active { background: #B9FF66; }
+  .social-ico:hover svg { fill: #191A23; }
+  input[type="radio"] { accent-color: #191A23; }
+</style>
+</head>
+<body class="bg-white text-dark font-sans text-base leading-normal">
+
+<!-- NAVBAR -->
+<nav class="flex items-center justify-between max-w-[1280px] mx-auto" style="padding:24px 60px;">
+  <a href="#" class="flex items-center gap-2.5 text-xl font-bold no-underline text-dark">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+      <circle cx="17" cy="17" r="16" stroke="#191A23" stroke-width="2"/>
+      <circle cx="10" cy="17" r="5" fill="#191A23"/>
+      <circle cx="24" cy="17" r="5" fill="#B9FF66"/>
+    </svg>
+    Positivus
+  </a>
+  <ul class="flex gap-10 list-none">
+    <li><a href="#" class="no-underline text-dark text-base hover:underline">About us</a></li>
+    <li><a href="#services" class="no-underline text-dark text-base hover:underline">Services</a></li>
+    <li><a href="#cases" class="no-underline text-dark text-base hover:underline">Use Cases</a></li>
+    <li><a href="#" class="no-underline text-dark text-base hover:underline">Pricing</a></li>
+    <li><a href="#" class="no-underline text-dark text-base hover:underline">Blog</a></li>
+  </ul>
+  <a href="#contact" class="px-7 py-3.5 border-[1.5px] border-dark rounded-[14px] bg-transparent font-sans text-base no-underline text-dark transition-colors duration-200 hover:bg-dark hover:text-white">Request a quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="max-w-[1280px] mx-auto grid gap-10 items-center" style="padding:30px 60px 60px;grid-template-columns:1fr 500px;">
+  <div>
+    <h1 class="font-bold leading-[1.1] mb-7" style="font-size:60px;letter-spacing:-1.5px;">Navigating the<br>digital landscape<br>for success</h1>
+    <p class="text-lg leading-[1.65] max-w-[430px] mb-8">Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
+    <a href="#contact" class="inline-block px-9 py-5 bg-dark text-white rounded-[14px] font-sans text-lg no-underline border-[1.5px] border-dark transition-colors duration-200 hover:bg-white hover:text-dark">Book a consultation</a>
+  </div>
+  <div class="flex justify-center items-center">
+    <img src="Firstdesign.png" alt="Hero illustration" class="w-full max-w-[520px]">
+  </div>
+</section>
+
+<!-- BRANDS MARQUEE -->
+<div class="border-t-[1.5px] border-b-[1.5px] border-dark py-6 overflow-hidden">
+  <div class="flex gap-[90px] items-center animate-marquee w-max px-[45px]">
+    <span class="text-[22px] font-bold text-dark whitespace-nowrap">amazon</span>
+    <span class="text-[22px] font-medium text-dark whitespace-nowrap italic">Dribbble</span>
+    <span class="text-[22px] font-bold text-dark whitespace-nowrap">HubSpot</span>
+    <span class="text-[22px] font-bold text-dark whitespace-nowrap">Notion</span>
+    <span class="text-[22px] font-black text-dark whitespace-nowrap tracking-widest">NETFLIX</span>
+    <span class="text-[22px] font-bold text-dark whitespace-nowrap">zoom</span>
+    <span class="text-[22px] font-bold text-dark whitespace-nowrap">amazon</span>
+    <span class="text-[22px] font-medium text-dark whitespace-nowrap italic">Dribbble</span>
+    <span class="text-[22px] font-bold text-dark whitespace-nowrap">HubSpot</span>
+    <span class="text-[22px] font-bold text-dark whitespace-nowrap">Notion</span>
+    <span class="text-[22px] font-black text-dark whitespace-nowrap tracking-widest">NETFLIX</span>
+    <span class="text-[22px] font-bold text-dark whitespace-nowrap">zoom</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="max-w-[1280px] mx-auto" id="services" style="padding:70px 60px;">
+  <div class="flex items-center gap-6 mb-12">
+    <span class="inline-block bg-green rounded-[7px] px-3 py-1 text-[28px] font-bold whitespace-nowrap">Services</span>
+    <p class="text-[17px] leading-[1.65] max-w-[490px]">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online.</p>
+  </div>
+  <div class="grid grid-cols-2 gap-7">
+
+    <!-- SEO — GREEN -->
+    <div class="bg-green border-[1.5px] border-dark rounded-5xl flex flex-col justify-between min-h-[230px] shadow-card transition-transform duration-200 hover:-translate-y-1 overflow-hidden" style="padding:50px;">
+      <div class="flex justify-between items-start gap-4 flex-1">
+        <div class="text-[26px] font-bold leading-[1.2] flex flex-col gap-1">
+          <span class="inline-block bg-white text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Search engine</span>
+          <span class="inline-block bg-white text-dark rounded-[7px] px-2.5 py-0.5 w-fit">optimization</span>
+        </div>
+        <svg width="150" height="130" viewBox="0 0 150 130" fill="none" class="flex-shrink-0">
+          <rect x="6" y="74" width="20" height="42" rx="4" fill="#191A23" opacity="0.6"/>
+          <rect x="32" y="52" width="20" height="64" rx="4" fill="#191A23" opacity="0.8"/>
+          <rect x="58" y="24" width="20" height="92" rx="4" fill="#191A23"/>
+          <circle cx="108" cy="48" r="30" stroke="#191A23" stroke-width="3.5" fill="rgba(25,26,35,.08)"/>
+          <circle cx="108" cy="48" r="18" fill="rgba(25,26,35,.1)"/>
+          <line x1="130" y1="72" x2="148" y2="96" stroke="#191A23" stroke-width="5.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="mt-7">
+        <a href="#" class="inline-flex items-center gap-2.5 text-lg no-underline text-dark hover:underline">
+          <div class="w-[42px] h-[42px] rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#B9FF66" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Learn more
+        </a>
+      </div>
+    </div>
+
+    <!-- PPC — LIGHT -->
+    <div class="bg-light border-[1.5px] border-dark rounded-5xl flex flex-col justify-between min-h-[230px] shadow-card transition-transform duration-200 hover:-translate-y-1 overflow-hidden" style="padding:50px;">
+      <div class="flex justify-between items-start gap-4 flex-1">
+        <div class="text-[26px] font-bold leading-[1.2] flex flex-col gap-1">
+          <span class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Pay-per-click</span>
+          <span class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 w-fit">advertising</span>
+        </div>
+        <svg width="150" height="130" viewBox="0 0 150 130" fill="none" class="flex-shrink-0">
+          <rect x="6" y="6" width="130" height="96" rx="12" stroke="#191A23" stroke-width="2.2" fill="rgba(25,26,35,.04)"/>
+          <line x1="6" y1="28" x2="136" y2="28" stroke="#191A23" stroke-width="1.8"/>
+          <circle cx="22" cy="17" r="5" fill="#191A23" opacity="0.3"/>
+          <circle cx="36" cy="17" r="5" fill="#191A23" opacity="0.3"/>
+          <circle cx="50" cy="17" r="5" fill="#191A23" opacity="0.3"/>
+          <path d="M68 42 L68 90 L80 78 L86 98 L96 94 L90 74 L105 74 Z" fill="#191A23" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="mt-7">
+        <a href="#" class="inline-flex items-center gap-2.5 text-lg no-underline text-dark hover:underline">
+          <div class="w-[42px] h-[42px] rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#B9FF66" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Learn more
+        </a>
+      </div>
+    </div>
+
+    <!-- Social Media — DARK -->
+    <div class="bg-dark border-[1.5px] border-dark rounded-5xl flex flex-col justify-between min-h-[230px] shadow-card transition-transform duration-200 hover:-translate-y-1 overflow-hidden" style="padding:50px;">
+      <div class="flex justify-between items-start gap-4 flex-1">
+        <div class="text-[26px] font-bold leading-[1.2] flex flex-col gap-1">
+          <span class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Social Media</span>
+          <span class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Marketing</span>
+        </div>
+        <svg width="150" height="130" viewBox="0 0 150 130" fill="none" class="flex-shrink-0">
+          <rect x="10" y="14" width="120" height="78" rx="10" stroke="#B9FF66" stroke-width="2.2" fill="rgba(185,255,102,.06)"/>
+          <line x1="10" y1="32" x2="130" y2="32" stroke="#B9FF66" stroke-width="1.4" opacity="0.45"/>
+          <rect x="58" y="92" width="30" height="9" rx="4" fill="#B9FF66" opacity="0.55"/>
+          <rect x="50" y="100" width="46" height="7" rx="3" fill="#B9FF66" opacity="0.35"/>
+          <rect x="24" y="50" width="12" height="28" rx="3" fill="#B9FF66" opacity="0.65"/>
+          <rect x="42" y="40" width="12" height="38" rx="3" fill="#B9FF66"/>
+          <rect x="60" y="55" width="12" height="23" rx="3" fill="#B9FF66" opacity="0.65"/>
+          <rect x="78" y="44" width="12" height="34" rx="3" fill="#B9FF66"/>
+          <rect x="96" y="52" width="12" height="26" rx="3" fill="#B9FF66" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="mt-7">
+        <a href="#" class="inline-flex items-center gap-2.5 text-lg no-underline text-white hover:underline">
+          <div class="w-[42px] h-[42px] rounded-full bg-white flex items-center justify-center flex-shrink-0">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#191A23" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Learn more
+        </a>
+      </div>
+    </div>
+
+    <!-- Email — LIGHT -->
+    <div class="bg-light border-[1.5px] border-dark rounded-5xl flex flex-col justify-between min-h-[230px] shadow-card transition-transform duration-200 hover:-translate-y-1 overflow-hidden" style="padding:50px;">
+      <div class="flex justify-between items-start gap-4 flex-1">
+        <div class="text-[26px] font-bold leading-[1.2] flex flex-col gap-1">
+          <span class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Email</span>
+          <span class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Marketing</span>
+        </div>
+        <svg width="150" height="130" viewBox="0 0 150 130" fill="none" class="flex-shrink-0">
+          <rect x="8" y="28" width="126" height="80" rx="12" stroke="#191A23" stroke-width="2.2" fill="rgba(25,26,35,.04)"/>
+          <polyline points="8,28 70,76 134,28" stroke="#191A23" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+          <line x1="8" y1="108" x2="52" y2="68" stroke="#191A23" stroke-width="1.8" opacity="0.35"/>
+          <line x1="134" y1="108" x2="90" y2="68" stroke="#191A23" stroke-width="1.8" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="mt-7">
+        <a href="#" class="inline-flex items-center gap-2.5 text-lg no-underline text-dark hover:underline">
+          <div class="w-[42px] h-[42px] rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#B9FF66" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Learn more
+        </a>
+      </div>
+    </div>
+
+    <!-- Content Creation — GREEN -->
+    <div class="bg-green border-[1.5px] border-dark rounded-5xl flex flex-col justify-between min-h-[230px] shadow-card transition-transform duration-200 hover:-translate-y-1 overflow-hidden" style="padding:50px;">
+      <div class="flex justify-between items-start gap-4 flex-1">
+        <div class="text-[26px] font-bold leading-[1.2] flex flex-col gap-1">
+          <span class="inline-block bg-white text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Content</span>
+          <span class="inline-block bg-white text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Creation</span>
+        </div>
+        <svg width="150" height="130" viewBox="0 0 150 130" fill="none" class="flex-shrink-0">
+          <rect x="54" y="12" width="78" height="96" rx="8" fill="rgba(25,26,35,.07)" stroke="#191A23" stroke-width="2"/>
+          <rect x="42" y="20" width="78" height="96" rx="8" fill="rgba(25,26,35,.05)" stroke="#191A23" stroke-width="2"/>
+          <rect x="30" y="28" width="78" height="96" rx="8" fill="#fff" stroke="#191A23" stroke-width="2"/>
+          <line x1="42" y1="52" x2="96" y2="52" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="42" y1="66" x2="88" y2="66" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="42" y1="80" x2="92" y2="80" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="42" y1="94" x2="76" y2="94" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M96 26 L116 6 L130 20 L110 40 Z" fill="#191A23"/>
+          <path d="M94 28 L84 50 L106 40 Z" fill="#191A23" opacity="0.55"/>
+          <line x1="110" y1="10" x2="126" y2="26" stroke="#fff" stroke-width="1.5" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="mt-7">
+        <a href="#" class="inline-flex items-center gap-2.5 text-lg no-underline text-dark hover:underline">
+          <div class="w-[42px] h-[42px] rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#B9FF66" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Learn more
+        </a>
+      </div>
+    </div>
+
+    <!-- Analytics — DARK -->
+    <div class="bg-dark border-[1.5px] border-dark rounded-5xl flex flex-col justify-between min-h-[230px] shadow-card transition-transform duration-200 hover:-translate-y-1 overflow-hidden" style="padding:50px;">
+      <div class="flex justify-between items-start gap-4 flex-1">
+        <div class="text-[26px] font-bold leading-[1.2] flex flex-col gap-1">
+          <span class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Analytics and</span>
+          <span class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 w-fit">Tracking</span>
+        </div>
+        <svg width="150" height="130" viewBox="0 0 150 130" fill="none" class="flex-shrink-0">
+          <line x1="10" y1="110" x2="140" y2="110" stroke="rgba(185,255,102,.3)" stroke-width="1.8"/>
+          <line x1="10" y1="10" x2="10" y2="110" stroke="rgba(185,255,102,.3)" stroke-width="1.8"/>
+          <polyline points="10,105 32,74 56,86 80,38 104,56 128,20 142,28" stroke="#B9FF66" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="80" cy="38" r="6" fill="#B9FF66" stroke="#191A23" stroke-width="2.5"/>
+          <circle cx="128" cy="20" r="6" fill="#B9FF66" stroke="#191A23" stroke-width="2.5"/>
+          <circle cx="32" cy="74" r="4.5" fill="#B9FF66" opacity="0.7"/>
+          <line x1="44" y1="110" x2="44" y2="115" stroke="#B9FF66" stroke-width="1.5" opacity="0.35"/>
+          <line x1="80" y1="110" x2="80" y2="115" stroke="#B9FF66" stroke-width="1.5" opacity="0.35"/>
+          <line x1="116" y1="110" x2="116" y2="115" stroke="#B9FF66" stroke-width="1.5" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="mt-7">
+        <a href="#" class="inline-flex items-center gap-2.5 text-lg no-underline text-white hover:underline">
+          <div class="w-[42px] h-[42px] rounded-full bg-white flex items-center justify-center flex-shrink-0">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#191A23" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Learn more
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROPOSAL BANNER -->
+<div class="max-w-[1280px] mx-auto" style="padding:0 60px 70px;">
+  <div class="bg-light rounded-5xl flex items-center justify-between gap-5 overflow-hidden" style="padding:60px 70px;">
+    <div>
+      <h2 class="text-[30px] font-bold mb-4 max-w-[420px]">Let's make things happen</h2>
+      <p class="text-[17px] leading-[1.65] max-w-[420px]">Contact us today to learn how our digital marketing services can help your business grow and succeed online.</p>
+      <a href="#contact" class="inline-block mt-6 px-9 py-5 bg-dark text-white rounded-[14px] font-sans text-lg no-underline transition-colors duration-200 hover:bg-[#2d2f40]">Get your free proposal</a>
+    </div>
+    <img src="Seconddesign.png" alt="Proposal illustration" class="flex-shrink-0 w-[380px] max-w-full">
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<div class="max-w-[1280px] mx-auto" id="cases" style="padding:70px 60px 14px;">
+  <div class="flex items-center gap-6 mb-12">
+    <span class="inline-block bg-green rounded-[7px] px-3 py-1 text-[28px] font-bold whitespace-nowrap">Case Studies</span>
+    <p class="text-[17px] leading-[1.65] max-w-[490px]">Explore our portfolio of successful digital marketing campaigns across industries.</p>
+  </div>
+</div>
+<div class="max-w-[1280px] mx-auto" style="padding:0 60px 70px;">
+  <div class="bg-dark rounded-5xl flex" style="padding:60px 0;">
+    <div class="flex-1 flex flex-col justify-between" style="padding:0 52px;border-right:1px solid rgba(255,255,255,.25);">
+      <p class="text-white text-base leading-[1.75] flex-1">For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in online reservations.</p>
+      <a href="#" class="inline-flex items-center gap-2 text-green text-[17px] no-underline mt-6 hover:underline">Learn more <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="flex-1 flex flex-col justify-between" style="padding:0 52px;border-right:1px solid rgba(255,255,255,.25);">
+      <p class="text-white text-base leading-[1.75] flex-1">For a B2B software company, we developed an SEO strategy that resulted in a first-page ranking for key search terms and a 200% increase in organic traffic.</p>
+      <a href="#" class="inline-flex items-center gap-2 text-green text-[17px] no-underline mt-6 hover:underline">Learn more <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="flex-1 flex flex-col justify-between" style="padding:0 52px;">
+      <p class="text-white text-base leading-[1.75] flex-1">For a national retail chain, we created a social media marketing campaign that increased their following by 2 million and generated a 20% increase in monthly sales.</p>
+      <a href="#" class="inline-flex items-center gap-2 text-green text-[17px] no-underline mt-6 hover:underline">Learn more <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- WORKING PROCESS -->
+<div class="max-w-[1280px] mx-auto" id="process" style="padding:70px 60px;">
+  <div class="flex items-center gap-6 mb-12">
+    <span class="inline-block bg-green rounded-[7px] px-3 py-1 text-[28px] font-bold whitespace-nowrap">Our Working Process</span>
+    <p class="text-[17px] leading-[1.65] max-w-[490px]">Step-by-step guide to achieving your business goals.</p>
+  </div>
+  <div class="flex flex-col gap-6">
+
+    <div class="process-item open border-[1.5px] border-dark rounded-5xl shadow-card overflow-hidden">
+      <div class="process-head flex items-center gap-6 cursor-pointer bg-light rounded-5xl" style="padding:36px 52px;" onclick="toggleProc(this)">
+        <span class="text-[48px] font-bold min-w-[80px] leading-none">01</span>
+        <span class="text-[26px] font-medium flex-1">Consultation</span>
+        <div class="process-toggle w-[54px] h-[54px] border-[1.5px] border-dark rounded-full flex items-center justify-center text-[26px] bg-white text-dark flex-shrink-0 transition-transform duration-300">+</div>
+      </div>
+      <div class="process-body"><p class="text-[17px] leading-[1.75]">During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.</p></div>
+    </div>
+
+    <div class="process-item border-[1.5px] border-dark rounded-5xl shadow-card overflow-hidden">
+      <div class="process-head flex items-center gap-6 cursor-pointer bg-light rounded-5xl" style="padding:36px 52px;" onclick="toggleProc(this)">
+        <span class="text-[48px] font-bold min-w-[80px] leading-none">02</span>
+        <span class="text-[26px] font-medium flex-1">Research and Strategy Development</span>
+        <div class="process-toggle w-[54px] h-[54px] border-[1.5px] border-dark rounded-full flex items-center justify-center text-[26px] bg-white text-dark flex-shrink-0 transition-transform duration-300">+</div>
+      </div>
+      <div class="process-body"><p class="text-[17px] leading-[1.75]">We conduct thorough market research and competitor analysis to build a data-driven strategy tailored to your industry, audience, and goals.</p></div>
+    </div>
+
+    <div class="process-item border-[1.5px] border-dark rounded-5xl shadow-card overflow-hidden">
+      <div class="process-head flex items-center gap-6 cursor-pointer bg-light rounded-5xl" style="padding:36px 52px;" onclick="toggleProc(this)">
+        <span class="text-[48px] font-bold min-w-[80px] leading-none">03</span>
+        <span class="text-[26px] font-medium flex-1">Implementation</span>
+        <div class="process-toggle w-[54px] h-[54px] border-[1.5px] border-dark rounded-full flex items-center justify-center text-[26px] bg-white text-dark flex-shrink-0 transition-transform duration-300">+</div>
+      </div>
+      <div class="process-body"><p class="text-[17px] leading-[1.75]">Our expert team executes the agreed strategy across all relevant channels — on time and on budget. We handle everything from campaign setup to content production.</p></div>
+    </div>
+
+    <div class="process-item border-[1.5px] border-dark rounded-5xl shadow-card overflow-hidden">
+      <div class="process-head flex items-center gap-6 cursor-pointer bg-light rounded-5xl" style="padding:36px 52px;" onclick="toggleProc(this)">
+        <span class="text-[48px] font-bold min-w-[80px] leading-none">04</span>
+        <span class="text-[26px] font-medium flex-1">Monitoring and Optimization</span>
+        <div class="process-toggle w-[54px] h-[54px] border-[1.5px] border-dark rounded-full flex items-center justify-center text-[26px] bg-white text-dark flex-shrink-0 transition-transform duration-300">+</div>
+      </div>
+      <div class="process-body"><p class="text-[17px] leading-[1.75]">We continuously track all KPIs in real-time dashboards and make ongoing adjustments to improve performance and maximise budget efficiency.</p></div>
+    </div>
+
+    <div class="process-item border-[1.5px] border-dark rounded-5xl shadow-card overflow-hidden">
+      <div class="process-head flex items-center gap-6 cursor-pointer bg-light rounded-5xl" style="padding:36px 52px;" onclick="toggleProc(this)">
+        <span class="text-[48px] font-bold min-w-[80px] leading-none">05</span>
+        <span class="text-[26px] font-medium flex-1">Reporting and Communication</span>
+        <div class="process-toggle w-[54px] h-[54px] border-[1.5px] border-dark rounded-full flex items-center justify-center text-[26px] bg-white text-dark flex-shrink-0 transition-transform duration-300">+</div>
+      </div>
+      <div class="process-body"><p class="text-[17px] leading-[1.75]">You receive clear monthly reports alongside regular calls to walk you through results, explain what's working, and align on the next period's priorities.</p></div>
+    </div>
+
+    <div class="process-item border-[1.5px] border-dark rounded-5xl shadow-card overflow-hidden">
+      <div class="process-head flex items-center gap-6 cursor-pointer bg-light rounded-5xl" style="padding:36px 52px;" onclick="toggleProc(this)">
+        <span class="text-[48px] font-bold min-w-[80px] leading-none">06</span>
+        <span class="text-[26px] font-medium flex-1">Continual Improvement</span>
+        <div class="process-toggle w-[54px] h-[54px] border-[1.5px] border-dark rounded-full flex items-center justify-center text-[26px] bg-white text-dark flex-shrink-0 transition-transform duration-300">+</div>
+      </div>
+      <div class="process-body"><p class="text-[17px] leading-[1.75]">Digital marketing never stands still. We continuously test new ideas, monitor industry trends, and apply learnings to keep your campaigns competitive long-term.</p></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="max-w-[1280px] mx-auto" id="team" style="padding:70px 60px;">
+  <div class="flex items-center gap-6 mb-12">
+    <span class="inline-block bg-green rounded-[7px] px-3 py-1 text-[28px] font-bold whitespace-nowrap">Team</span>
+    <p class="text-[17px] leading-[1.65] max-w-[490px]">Meet the skilled and experienced team behind our successful digital marketing strategies.</p>
+  </div>
+  <div class="grid grid-cols-3 gap-7 mb-8">
+
+    <div class="border-[1.5px] border-dark rounded-5xl shadow-card" style="padding:36px 32px;">
+      <div class="flex items-end gap-4 pb-5 mb-4 border-b-[1.5px] border-dark">
+        <div class="w-[100px] h-[100px] rounded-full border-[1.5px] border-dark overflow-hidden flex-shrink-0"><img src="JohnSmith.jpg" alt="John Smith" class="w-full h-full object-cover"></div>
+        <div><div class="text-xl font-bold mb-1">John Smith</div><div class="text-[15px]">CEO &amp; Founder</div></div>
+      </div>
+      <p class="text-[15px] leading-[1.65]">10+ years experience in digital marketing. Expertise in SEO, PPC, email marketing and content strategy.</p>
+    </div>
+
+    <div class="border-[1.5px] border-dark rounded-5xl shadow-card" style="padding:36px 32px;">
+      <div class="flex items-end gap-4 pb-5 mb-4 border-b-[1.5px] border-dark">
+        <div class="w-[100px] h-[100px] rounded-full border-[1.5px] border-dark overflow-hidden flex-shrink-0"><img src="JaneDow.jpg" alt="Jane Doe" class="w-full h-full object-cover"></div>
+        <div><div class="text-xl font-bold mb-1">Jane Doe</div><div class="text-[15px]">Director of Ops</div></div>
+      </div>
+      <p class="text-[15px] leading-[1.65]">7+ years of experience in project management and team leadership. Focus on operational excellence.</p>
+    </div>
+
+    <div class="border-[1.5px] border-dark rounded-5xl shadow-card" style="padding:36px 32px;">
+      <div class="flex items-end gap-4 pb-5 mb-4 border-b-[1.5px] border-dark">
+        <div class="w-[100px] h-[100px] rounded-full border-[1.5px] border-dark overflow-hidden flex-shrink-0"><img src="MichaelBrown.jpg" alt="Michael Brown" class="w-full h-full object-cover"></div>
+        <div><div class="text-xl font-bold mb-1">Michael Brown</div><div class="text-[15px]">Head of SEO</div></div>
+      </div>
+      <p class="text-[15px] leading-[1.65]">Specialist in technical SEO and link building with a proven track record achieving first-page rankings.</p>
+    </div>
+
+    <div class="border-[1.5px] border-dark rounded-5xl shadow-card" style="padding:36px 32px;">
+      <div class="flex items-end gap-4 pb-5 mb-4 border-b-[1.5px] border-dark">
+        <div class="w-[100px] h-[100px] rounded-full border-[1.5px] border-dark overflow-hidden flex-shrink-0"><img src="EmilyJohnson.jpg" alt="Emily Johnson" class="w-full h-full object-cover"></div>
+        <div><div class="text-xl font-bold mb-1">Emily Johnson</div><div class="text-[15px]">PPC Specialist</div></div>
+      </div>
+      <p class="text-[15px] leading-[1.65]">Expert in paid search and display advertising. Manages $2M+ in annual ad spend with consistent positive ROI.</p>
+    </div>
+
+    <div class="border-[1.5px] border-dark rounded-5xl shadow-card" style="padding:36px 32px;">
+      <div class="flex items-end gap-4 pb-5 mb-4 border-b-[1.5px] border-dark">
+        <div class="w-[100px] h-[100px] rounded-full border-[1.5px] border-dark overflow-hidden flex-shrink-0"><img src="BrianWilliams.jpg" alt="Brian Williams" class="w-full h-full object-cover"></div>
+        <div><div class="text-xl font-bold mb-1">Brian Williams</div><div class="text-[15px]">Content Strategist</div></div>
+      </div>
+      <p class="text-[15px] leading-[1.65]">Former journalist with a passion for crafting compelling narratives that drive engagement and conversions.</p>
+    </div>
+
+    <div class="border-[1.5px] border-dark rounded-5xl shadow-card" style="padding:36px 32px;">
+      <div class="flex items-end gap-4 pb-5 mb-4 border-b-[1.5px] border-dark">
+        <div class="w-[100px] h-[100px] rounded-full border-[1.5px] border-dark overflow-hidden flex-shrink-0"><img src="SarahKim.jpg" alt="Sarah Kim" class="w-full h-full object-cover"></div>
+        <div><div class="text-xl font-bold mb-1">Sarah Kim</div><div class="text-[15px]">Social Media Lead</div></div>
+      </div>
+      <p class="text-[15px] leading-[1.65]">Manages communities of 500K+ followers and turns social engagement into measurable business results.</p>
+    </div>
+
+  </div>
+  <div class="text-right">
+    <a href="#" class="inline-block px-9 py-5 border-[1.5px] border-dark rounded-[14px] bg-transparent font-sans text-lg no-underline text-dark transition-colors duration-200 hover:bg-dark hover:text-white">See all team</a>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="max-w-[1280px] mx-auto" id="testimonials" style="padding:0 60px 70px;">
+  <div class="bg-dark rounded-5xl" style="padding:80px 60px 52px;">
+    <div class="flex items-center gap-6 mb-12">
+      <span class="text-green text-[28px] font-bold">Testimonials</span>
+      <p class="text-white/75 text-[17px] leading-[1.6] max-w-[490px]">Hear from our satisfied clients about their experience working with us.</p>
+    </div>
+    <div class="overflow-hidden">
+      <div class="testi-track" id="testiTrack">
+        <div class="border-[1.5px] border-green rounded-[28px] flex-shrink-0" style="min-width:calc(50% - 14px);padding:42px 48px;">
+          <div class="text-[52px] text-green font-serif leading-none mb-4">"</div>
+          <p class="text-base leading-[1.8] text-white mb-6">We have been working with Positivus for the past year and have seen a tremendous increase in website traffic and online leads. Their team is professional, responsive, and truly cares about our success.</p>
+          <div class="h-[1.5px] bg-white/20 mb-5"></div>
+          <div><strong class="block text-green text-[17px] font-bold mb-1">John Smith</strong><span class="text-white/75 text-[15px]">Founder &amp; CEO at TechStartup</span></div>
+        </div>
+        <div class="border-[1.5px] border-green rounded-[28px] flex-shrink-0" style="min-width:calc(50% - 14px);padding:42px 48px;">
+          <div class="text-[52px] text-green font-serif leading-none mb-4">"</div>
+          <p class="text-base leading-[1.8] text-white mb-6">Positivus transformed our social media presence completely. Their campaigns consistently exceed our expectations. We have seen 3x growth in qualified leads in just 6 months.</p>
+          <div class="h-[1.5px] bg-white/20 mb-5"></div>
+          <div><strong class="block text-green text-[17px] font-bold mb-1">Sarah Johnson</strong><span class="text-white/75 text-[15px]">Marketing Director at RetailCo</span></div>
+        </div>
+        <div class="border-[1.5px] border-green rounded-[28px] flex-shrink-0" style="min-width:calc(50% - 14px);padding:42px 48px;">
+          <div class="text-[52px] text-green font-serif leading-none mb-4">"</div>
+          <p class="text-base leading-[1.8] text-white mb-6">The SEO work Positivus delivered was exceptional. We jumped from page 3 to the top of page 1 for our most important keywords. The organic traffic increase has been remarkable.</p>
+          <div class="h-[1.5px] bg-white/20 mb-5"></div>
+          <div><strong class="block text-green text-[17px] font-bold mb-1">David Chen</strong><span class="text-white/75 text-[15px]">CEO at E-Commerce Brand</span></div>
+        </div>
+        <div class="border-[1.5px] border-green rounded-[28px] flex-shrink-0" style="min-width:calc(50% - 14px);padding:42px 48px;">
+          <div class="text-[52px] text-green font-serif leading-none mb-4">"</div>
+          <p class="text-base leading-[1.8] text-white mb-6">Incredible expertise and transparency. They are true partners who invest in your success. Our conversion rate doubled within the first quarter of working with the Positivus team.</p>
+          <div class="h-[1.5px] bg-white/20 mb-5"></div>
+          <div><strong class="block text-green text-[17px] font-bold mb-1">Lisa Park</strong><span class="text-white/75 text-[15px]">VP Growth at SaaS Company</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-center gap-3.5 mt-11">
+      <button onclick="tSlide(-1)" class="w-[50px] h-[50px] rounded-full border-[1.5px] border-white/40 bg-transparent text-white text-xl cursor-pointer flex items-center justify-center hover:border-green hover:text-green transition-colors">←</button>
+      <div class="flex gap-2.5 items-center">
+        <div class="testi-dot w-3 h-3 rounded-full bg-white/30 cursor-pointer active" onclick="tGo(0)"></div>
+        <div class="testi-dot w-3 h-3 rounded-full bg-white/30 cursor-pointer" onclick="tGo(1)"></div>
+        <div class="testi-dot w-3 h-3 rounded-full bg-white/30 cursor-pointer" onclick="tGo(2)"></div>
+      </div>
+      <button onclick="tSlide(1)" class="w-[50px] h-[50px] rounded-full border-[1.5px] border-white/40 bg-transparent text-white text-xl cursor-pointer flex items-center justify-center hover:border-green hover:text-green transition-colors">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="max-w-[1280px] mx-auto" id="contact" style="padding:0 60px 70px;">
+  <div class="bg-light rounded-5xl grid gap-10 items-start" style="padding:60px 80px;grid-template-columns:1fr 420px;">
+    <div>
+      <div class="inline-block bg-green rounded-[7px] px-3 py-1 text-[28px] font-bold mb-3.5">Contact Us</div>
+      <p class="text-[17px] leading-[1.6] max-w-[400px] mb-8">Connect with us: let us know how we can help you grow your business online.</p>
+      <div class="flex gap-8 mb-6">
+        <label class="flex items-center gap-2 text-[17px] cursor-pointer"><input type="radio" name="ctype" value="hi" checked class="w-5 h-5"> Say Hi</label>
+        <label class="flex items-center gap-2 text-[17px] cursor-pointer"><input type="radio" name="ctype" value="quote" class="w-5 h-5"> Get a Quote</label>
+      </div>
+      <div class="flex flex-col gap-1.5 mb-4">
+        <label class="text-base font-medium">Name</label>
+        <input type="text" placeholder="Name" class="px-5 py-4 border-[1.5px] border-dark rounded-[14px] font-sans text-base bg-white outline-none focus:border-green transition-colors">
+      </div>
+      <div class="flex flex-col gap-1.5 mb-4">
+        <label class="text-base font-medium">Email*</label>
+        <input type="email" placeholder="Email" class="px-5 py-4 border-[1.5px] border-dark rounded-[14px] font-sans text-base bg-white outline-none focus:border-green transition-colors">
+      </div>
+      <div class="flex flex-col gap-1.5 mb-4">
+        <label class="text-base font-medium">Message</label>
+        <textarea rows="5" placeholder="Message" class="px-5 py-4 border-[1.5px] border-dark rounded-[14px] font-sans text-base bg-white outline-none focus:border-green transition-colors resize-y"></textarea>
+      </div>
+      <button class="w-full py-5 bg-dark text-white border-none rounded-[14px] font-sans text-[19px] font-medium cursor-pointer mt-1 hover:bg-[#2d2f40] transition-colors">Send Message</button>
+    </div>
+    <div class="flex items-center justify-center pt-5">
+      <svg width="360" height="360" viewBox="0 0 360 360" fill="none">
+        <g stroke="#191A23" stroke-width="1" opacity="0.12" stroke-linecap="round">
+          <line x1="180" y1="0" x2="180" y2="360"/><line x1="0" y1="180" x2="360" y2="180"/>
+          <line x1="0" y1="0" x2="360" y2="360"/><line x1="360" y1="0" x2="0" y2="360"/>
+          <line x1="0" y1="90" x2="360" y2="270"/><line x1="360" y1="90" x2="0" y2="270"/>
+          <line x1="90" y1="0" x2="270" y2="360"/><line x1="270" y1="0" x2="90" y2="360"/>
+          <line x1="0" y1="140" x2="360" y2="220"/><line x1="360" y1="140" x2="0" y2="220"/>
+          <line x1="140" y1="0" x2="220" y2="360"/><line x1="220" y1="0" x2="140" y2="360"/>
+        </g>
+        <path d="M180 118 L191 170 L244 180 L191 190 L180 242 L169 190 L116 180 L169 170 Z" fill="#191A23"/>
+        <g transform="translate(105,95)"><path d="M17 0 L20 12 L33 17 L20 22 L17 34 L14 22 L1 17 L14 12 Z" fill="#B9FF66" stroke="#191A23" stroke-width="1.5"/></g>
+        <g transform="translate(234,244)"><path d="M13 0 L16 9.5 L26 13 L16 16.5 L13 26 L10 16.5 L0 13 L10 9.5 Z" fill="#B9FF66" stroke="#191A23" stroke-width="1.5"/></g>
+        <g transform="translate(248,110)"><path d="M9 0 L11 6 L17 9 L11 12 L9 18 L7 12 L1 9 L7 6 Z" fill="#191A23"/></g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="max-w-[1280px] mx-auto" style="padding:0 60px 0;">
+  <footer class="bg-dark text-white" style="border-radius:45px 45px 0 0;padding:55px 60px 48px;">
+    <div class="flex items-center justify-between mb-12">
+      <a href="#" class="flex items-center gap-2.5 text-white text-xl font-bold no-underline">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+          <circle cx="17" cy="17" r="16" stroke="#fff" stroke-width="2"/>
+          <circle cx="10" cy="17" r="5" fill="#fff"/>
+          <circle cx="24" cy="17" r="5" fill="#B9FF66"/>
+        </svg>
+        Positivus
+      </a>
+      <ul class="flex gap-8 list-none">
+        <li><a href="#" class="text-white text-base no-underline hover:underline">About us</a></li>
+        <li><a href="#services" class="text-white text-base no-underline hover:underline">Services</a></li>
+        <li><a href="#cases" class="text-white text-base no-underline hover:underline">Use Cases</a></li>
+        <li><a href="#" class="text-white text-base no-underline hover:underline">Pricing</a></li>
+        <li><a href="#" class="text-white text-base no-underline hover:underline">Blog</a></li>
+      </ul>
+      <div class="flex gap-3.5">
+        <a href="#" class="social-ico w-[38px] h-[38px] rounded-full border-[1.5px] border-white/50 flex items-center justify-center no-underline hover:border-green hover:bg-green transition-colors">
+          <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.25 8.5h4.5V24H.25V8.5zM8.5 8.5H13v2.1h.06A4.97 4.97 0 0117.5 8c4.5 0 5.5 3 5.5 6.8V24h-4.5v-8.3c0-2-.04-4.5-2.75-4.5-2.75 0-3.17 2.15-3.17 4.36V24H8.5V8.5z"/></svg>
+        </a>
+        <a href="#" class="social-ico w-[38px] h-[38px] rounded-full border-[1.5px] border-white/50 flex items-center justify-center no-underline hover:border-green hover:bg-green transition-colors">
+          <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+        </a>
+        <a href="#" class="social-ico w-[38px] h-[38px] rounded-full border-[1.5px] border-white/50 flex items-center justify-center no-underline hover:border-green hover:bg-green transition-colors">
+          <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-16 mb-12 pb-12 border-b border-white/[.18]">
+      <div>
+        <div class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 text-[19px] font-bold mb-4">Contact us:</div>
+        <p class="text-white/80 text-base leading-[1.8]">Email: info@positivus.com</p>
+        <p class="text-white/80 text-base leading-[1.8]">Phone: 555-567-8901</p>
+        <p class="text-white/80 text-base leading-[1.8]">Address: 1234 Main St, Moonstone City,<br>Stardust State 12345</p>
+      </div>
+      <div>
+        <div class="inline-block bg-green text-dark rounded-[7px] px-2.5 py-0.5 text-[19px] font-bold mb-4">Subscribe to news:</div>
+        <div class="flex gap-3.5">
+          <input type="email" placeholder="Email" class="flex-1 px-5 py-4 border-[1.5px] border-white/35 rounded-[14px] bg-transparent text-white font-sans text-base outline-none placeholder:text-white/40 focus:border-green transition-colors">
+          <button class="px-6 py-4 bg-green text-dark border-none rounded-[14px] font-sans text-base font-semibold cursor-pointer whitespace-nowrap">Subscribe to news</button>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-8 text-white/60 text-[15px]">
+      <span>© 2023 Positivus. All Rights Reserved.</span>
+      <a href="#" class="text-white/60 no-underline hover:underline">Privacy Policy</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+function toggleProc(header) {
+  const item = header.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.process-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+let tCur = 0, tMax = 2;
+function tUpdateSlider() {
+  const track = document.getElementById('testiTrack');
+  const w = track.children[0].offsetWidth + 28;
+  track.style.transform = `translateX(-${tCur * w}px)`;
+  document.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === tCur));
+}
+function tSlide(d) { tCur = Math.max(0, Math.min(tMax, tCur + d)); tUpdateSlider(); }
+function tGo(i)    { tCur = i; tUpdateSlider(); }
+setInterval(() => { tCur = tCur >= tMax ? 0 : tCur + 1; tUpdateSlider(); }, 5500);
+</script>
+</body>
+</html>
