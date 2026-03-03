@@ -37,16 +37,7 @@
     }
   }
 </script>
-<style>
-  .process-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; padding: 0 52px; }
-  .process-item.open .process-body { max-height: 220px; padding: 28px 52px 44px; border-top: 1.5px solid rgba(25,26,35,.2); }
-  .process-item.open .process-head { background: #B9FF66; border-radius: 2.8rem 2.8rem 0 0; }
-  .process-item.open .process-toggle { transform: rotate(45deg); background: #191A23; color: #fff; }
-  .testi-track { display: flex; gap: 28px; transition: transform .5s cubic-bezier(.4,0,.2,1); }
-  .testi-dot.active { background: #B9FF66; }
-  .social-ico:hover svg { fill: #191A23; }
-  input[type="radio"] { accent-color: #191A23; }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white text-dark font-sans text-base leading-normal">
 
@@ -581,23 +572,6 @@
   </footer>
 </div>
 
-<script>
-function toggleProc(header) {
-  const item = header.parentElement;
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.process-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-let tCur = 0, tMax = 2;
-function tUpdateSlider() {
-  const track = document.getElementById('testiTrack');
-  const w = track.children[0].offsetWidth + 28;
-  track.style.transform = `translateX(-${tCur * w}px)`;
-  document.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === tCur));
-}
-function tSlide(d) { tCur = Math.max(0, Math.min(tMax, tCur + d)); tUpdateSlider(); }
-function tGo(i)    { tCur = i; tUpdateSlider(); }
-setInterval(() => { tCur = tCur >= tMax ? 0 : tCur + 1; tUpdateSlider(); }, 5500);
-</script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+/* ── Accordion (Working Process) ── */
+.process-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+  padding: 0 52px;
+}
+.process-item.open .process-body {
+  max-height: 220px;
+  padding: 28px 52px 44px;
+  border-top: 1.5px solid rgba(25,26,35,.2);
+}
+.process-item.open .process-head {
+  background: #B9FF66;
+  border-radius: 2.8rem 2.8rem 0 0;
+}
+.process-item.open .process-toggle {
+  transform: rotate(45deg);
+  background: #191A23;
+  color: #fff;
+}
+
+/* ── Testimonials slider ── */
+.testi-track {
+  display: flex;
+  gap: 28px;
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.testi-dot.active {
+  background: #B9FF66;
+}
+
+/* ── Social icons hover ── */
+.social-ico:hover svg {
+  fill: #191A23;
+}
+
+/* ── Radio button accent ── */
+input[type="radio"] {
+  accent-color: #191A23;
+}
